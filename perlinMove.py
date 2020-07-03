@@ -56,8 +56,8 @@ while True:
 
 	if keys[pygame.K_UP   ] or keys[pygame.K_w   ]: camera["vel"].y -= 1
 	if keys[pygame.K_DOWN ] or keys[pygame.K_s   ]: camera["vel"].y += 1
-	if keys[pygame.K_RIGHT] or keys[pygame.K_a   ]: camera["vel"].x += 1
-	if keys[pygame.K_LEFT ] or keys[pygame.K_d   ]: camera["vel"].x -= 1
+	if keys[pygame.K_RIGHT] or keys[pygame.K_d   ]: camera["vel"].x += 1
+	if keys[pygame.K_LEFT ] or keys[pygame.K_a   ]: camera["vel"].x -= 1
 
 	# Update everything
 	cloudLocation += Vector(1, 0.2)
