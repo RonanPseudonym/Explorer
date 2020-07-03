@@ -8,6 +8,9 @@ Pygame, Noise
 `pip install pygame`
 `pip install noise`
 
+# Running this program
+Run `perlinMove.py` in Python
+
 # Copyright
 © Ronan Underwood 2020
 Some rights reserved
