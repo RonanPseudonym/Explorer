@@ -39,6 +39,8 @@ brillo    =   ---  # 0: transparente    1: máximo       🌷
                    # Documentación del código
                    # ============= 🌸🌸🌸 ============
 
+#Added for a line 42
+
 """
 
 width, height, zoom = 5000, 5000, 5
@@ -72,8 +74,3 @@ for y in range(height):
         row.append(255)
         row.append(max(int((cloudMap[y][x] - airAmount) * 255 * brightness/(1-airAmount)), 0)) # M A T H 
 png.from_array(imgData, "LA").save(os.path.join(directory,"cloud.png"))
-
-
-
-
-#Added for a line 42
