@@ -38,7 +38,7 @@ def drawTile(xPos, yPos):
 			cacheTiles[key] = pygame.transform.scale(cacheTiles[key],[zoom*cacheTiles[key].get_width(),zoom*cacheTiles[key].get_height()])
 		else:
 			perlinWrite.createTile(xPos, yPos)
-			print(xPos, yPos)
+			print("Generated tile at", xPos, yPos)
 		drawTile(xPos, yPos)
 
 
