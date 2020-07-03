@@ -4,6 +4,7 @@ import random, time, math, pygame, os, perlinWrite
 # Utility
 screenWidth, screenHeight, zoom = 800, 600, 7
 Vector = pygame.math.Vector2
+directory = os.path.dirname(os.path.realpath(__file__))
 
 camera = {
 		"pos": Vector(),
@@ -23,7 +24,7 @@ clock = pygame.time.Clock()
 cacheTiles = {}
 cloudLocation = Vector() # Uppercase ✨
 
-clouds = pygame.image.load("Dropbox/Code/Perlin/cloud.png").convert_alpha() #🌤😍
+clouds = pygame.image.load(directory+"/cloud.png").convert_alpha() #🌤😍
 cloudWidth, cloudHeight = clouds.get_size()
 
 def drawTile(xPos, yPos):
@@ -31,7 +32,7 @@ def drawTile(xPos, yPos):
 	if key in cacheTiles:
 		screen.blit(cacheTiles[key], Vector(xPos*scale,yPos*scale)-camera['pos'])
 	else:
-		filePath = "Dropbox/Code/Perlin/Tiles/"+str(int(xPos))+", "+str(int(yPos))+".png"
+		filePath = directory+"/Tiles/"+str(int(xPos))+", "+str(int(yPos))+".png"
 		if os.path.isfile(filePath):
 			cacheTiles[key] = pygame.image.load(filePath).convert()
 			cacheTiles[key] = pygame.transform.scale(cacheTiles[key],[zoom*cacheTiles[key].get_width(),zoom*cacheTiles[key].get_height()])
