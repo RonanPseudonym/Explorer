@@ -27,15 +27,6 @@ def returnTempImgData(exponent, mapHeight, xPos, yPos):
       rawNoise = 1 - (rawNoise ** exponent)
       row.append(rawNoise)
     temporaryImgData.append(row)
-
-  # low = min(map(min, temporaryImgData))
-  # high = max(map(max, temporaryImgData))
-
-  # #Normalize!
-
-  # for y in range(height):
-  #   for x in range(width):
-  #     temporaryImgData[y][x] = 1 - (((temporaryImgData[y][x] - low) / (high - low)) ** exponent) 
   
   for i in range(0, len(temporaryImgData)): 
     for j in range(0, len(temporaryImgData[i])):
@@ -53,20 +44,14 @@ def createTile(xPos, yPos):
 
   moistureMap = returnTempImgData(1, colorHeight, (xPos+255)*width, (yPos+255)*height)
 
-  #cloudMap = returnTempImgData(1, colorHeight, xPos*width, yPos*height)
-
   for y in range(height):
     row = []
     imgData.append(row)
 
     for x in range(width):
       pixel = (getColor(moistureMap[y][x], elevationMap[y][x]))
-      #for z in range(0, 3):
-        #pixel[z] += int(cloudMap[y][x]/1.5)
-        #pixel[z] = clamp(pixel[z],0,255)
       row.extend(pixel)
       
-  # Save as a png image with the format RGB (no alpha) called perlinterrain.png
   png.from_array(imgData, "RGB").save(os.path.join(directory,("Tiles/"+str(xPos)+", "+str(yPos)+".png")))
 
 if __name__ == "__main__":
