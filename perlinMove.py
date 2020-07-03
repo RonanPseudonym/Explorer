@@ -54,10 +54,10 @@ while True:
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT: exit()
 
-	if keys[pygame.K_UP   ]: camera["vel"].y -= 1
-	if keys[pygame.K_DOWN ]: camera["vel"].y += 1
-	if keys[pygame.K_RIGHT]: camera["vel"].x += 1
-	if keys[pygame.K_LEFT ]: camera["vel"].x -= 1
+	if keys[pygame.K_UP   ] or keys[pygame.K_w   ]: camera["vel"].y -= 1
+	if keys[pygame.K_DOWN ] or keys[pygame.K_a   ]: camera["vel"].y += 1
+	if keys[pygame.K_RIGHT] or keys[pygame.K_s   ]: camera["vel"].x += 1
+	if keys[pygame.K_LEFT ] or keys[pygame.K_d   ]: camera["vel"].x -= 1
 
 	# Update everything
 	cloudLocation += Vector(1, 0.2)
